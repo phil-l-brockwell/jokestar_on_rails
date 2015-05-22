@@ -1,0 +1,3 @@
+== README
+
+A social media website using Ruby on Rails.
