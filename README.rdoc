@@ -1,3 +1,11 @@
 == README
 
 A social media website using Ruby on Rails.
+
+# The Story so Far...
+
+* Added Jokes
+
+# Next...
+
+* Add Users
