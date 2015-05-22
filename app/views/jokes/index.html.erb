@@ -1,0 +1,21 @@
+This is the Jokes Page!
+
+<%= form_for [@joke] do |f| %>
+  <%= f.label :text %>
+  <%= f.text_field :text %>
+  <%= f.submit %>
+<% end %>
+<br>
+
+<% if @jokes %>
+  
+  <% @jokes.each do |joke| %>
+
+    <%= joke.text %>
+    <%= joke.rating %>
+    <br>
+    <br>
+
+  <% end %>
+
+<% end %>
