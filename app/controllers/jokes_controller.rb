@@ -5,6 +5,7 @@ class JokesController < ApplicationController
   def index
     @jokes = Joke.all
     @joke = Joke.new
+    @users = User.all
   end
 
   def create

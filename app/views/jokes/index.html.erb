@@ -20,3 +20,10 @@ This is the Jokes Page!
   <% end %>
 
 <% end %>
+
+<% @users.each do |user| %>
+  
+  <%= user.email %>
+  <%= user.rating %>
+
+<% end %>
