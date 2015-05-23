@@ -1,6 +1,6 @@
 class JokesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: :index
 
   def index
     @jokes = Joke.all
@@ -9,6 +9,13 @@ class JokesController < ApplicationController
 
   def create
     Joke.create(joke_params)
+    redirect_to '/jokes'
+  end
+
+  def destroy
+    joke = Joke.find(params[:id])
+    joke.delete
+    flash[:notice] = 'Joke deleted successfully'
     redirect_to '/jokes'
   end
 
