@@ -11,7 +11,15 @@
 
   <body>
 
-    <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+    <% if user_signed_in? %>
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <%= current_user.email %>
+      <%= current_user.rating %>
+    <% else %>
+      <%= link_to 'Sign in', new_user_session_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% end %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <h1>This is JokeStar!</h1>
