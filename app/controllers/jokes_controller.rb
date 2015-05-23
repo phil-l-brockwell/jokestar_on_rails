@@ -3,6 +3,7 @@ class JokesController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
+    @user = current_user || User.new
     @jokes = Joke.all
     @joke = Joke.new
     @users = User.all
@@ -25,5 +26,4 @@ class JokesController < ApplicationController
   def joke_params
     params.require(:joke).permit(:text)
   end
-
 end

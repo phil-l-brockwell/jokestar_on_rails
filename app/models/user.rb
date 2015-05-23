@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def defaults
     self.rating = 0
   end
+
+  def owns_joke?(joke)
+    jokes.include? joke
+  end
 end
