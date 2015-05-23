@@ -5,7 +5,8 @@ A social media website using Ruby on Rails.
 == The Story so Far...
 
 * Added Jokes
+* Added Users
 
 == Next...
 
-* Add Users
+* Add Facebook Login
