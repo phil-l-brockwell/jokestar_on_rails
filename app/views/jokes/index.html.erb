@@ -13,6 +13,7 @@ This is the Jokes Page!
 
     <%= joke.text %>
     <%= joke.rating %>
+    <%= joke.user.email %>
     <%= link_to "Delete", joke_path(joke), method: :delete %>
     <br>
     <br>

@@ -9,7 +9,7 @@ class JokesController < ApplicationController
   end
 
   def create
-    Joke.create(joke_params)
+    current_user.jokes.create(joke_params)
     redirect_to '/jokes'
   end
 
