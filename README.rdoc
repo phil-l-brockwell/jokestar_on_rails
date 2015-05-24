@@ -12,6 +12,6 @@ A social media website using Ruby on Rails.
 == Next...
 
 * Add Facebook Login
-* Incorporate user nicknames
+* Incorporate user ranking system
 * Use bootstrap for styling
 * Use Angular JS for front end?
