@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   def defaults
-    self.rating = 0
+    rating = 0
   end
 
   def owns_joke?(joke)
-    jokes.include? joke
+    id == joke.user_id
   end
 end

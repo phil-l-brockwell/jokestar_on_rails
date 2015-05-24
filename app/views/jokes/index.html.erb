@@ -13,11 +13,10 @@
     <%= joke.rating %>
     <%= joke.user.email %>
     <%= form_for [joke, @star] do |f| %>
-      <%= f.label :rating %>
       <%= f.select :rating, (1..5) %>
       <%= f.submit 'Star' %>
     <% end %>
-    <%= joke.stars.length %>
+    <%= joke.average_rating %>
     <% if @user.owns_joke? joke %>
       <%= link_to "Delete", joke_path(joke), method: :delete %>
     <% end %>
