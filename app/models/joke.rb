@@ -12,7 +12,7 @@ class Joke < ActiveRecord::Base
     return 0 unless stars.any?
     total = stars.inject(0){ |sum, star| sum += star.rating } 
     average = total / stars.length.to_f
-    average.round(2)
+    average.round(1)
   end
 
 end

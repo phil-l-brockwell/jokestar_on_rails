@@ -10,11 +10,12 @@
   <% @jokes.each do |joke| %>
 
     <%= joke.text %>
-    <%= joke.rating %>
     <%= joke.user.email %>
-    <%= form_for [joke, @star] do |f| %>
-      <%= f.select :rating, (1..5) %>
-      <%= f.submit 'Star' %>
+    <% unless @user.has_starred? joke %>
+      <%= form_for [joke, @star] do |f| %>
+        <%= f.select :rating, (1..5) %>
+        <%= f.submit 'Star' %>
+      <% end %>
     <% end %>
     <%= joke.average_rating %>
     <% if @user.owns_joke? joke %>
