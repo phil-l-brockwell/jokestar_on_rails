@@ -7,11 +7,12 @@ class JokesController < ApplicationController
     @jokes = Joke.all
     @joke = Joke.new
     @users = User.all
+    @star = Star.new
   end
 
   def create
     current_user.jokes.create(joke_params)
-    redirect_to '/jokes'
+    redirect_to '/'
   end
 
   def destroy

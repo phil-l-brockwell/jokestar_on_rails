@@ -1,5 +1,3 @@
-This is the Jokes Page!
-
 <%= form_for [@joke] do |f| %>
   <%= f.label :text %>
   <%= f.text_field :text %>
@@ -7,16 +5,22 @@ This is the Jokes Page!
 <% end %>
 <br>
 
-<% if @jokes %>
+<% if @jokes.any? %>
   
   <% @jokes.each do |joke| %>
 
     <%= joke.text %>
     <%= joke.rating %>
     <%= joke.user.email %>
-      <% if @user.owns_joke? joke %>
-        <%= link_to "Delete", joke_path(joke), method: :delete %>
-      <% end %>
+    <%= form_for [joke, @star] do |f| %>
+      <%= f.label :rating %>
+      <%= f.select :rating, (1..5) %>
+      <%= f.submit 'Star' %>
+    <% end %>
+    <%= joke.stars.length %>
+    <% if @user.owns_joke? joke %>
+      <%= link_to "Delete", joke_path(joke), method: :delete %>
+    <% end %>
     <br>
     <br>
 

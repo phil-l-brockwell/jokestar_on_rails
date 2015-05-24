@@ -2,6 +2,7 @@ class Joke < ActiveRecord::Base
 
   after_initialize :defaults
   belongs_to :user
+  has_many :stars, dependent: :destroy
 
   def defaults
     self.rating = 0
