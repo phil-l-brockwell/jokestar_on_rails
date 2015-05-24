@@ -5,8 +5,11 @@ A social media website using Ruby on Rails.
 == The Story so Far...
 
 * Added Jokes
-* Added Users
+* Added Users and associated with Jokes
 
 == Next...
 
 * Add Facebook Login
+* Add Stars
+* Use bootstrap for styling
+* Use Angular JS for front end
