@@ -7,10 +7,11 @@ A social media website using Ruby on Rails.
 * Added Jokes
 * Added Users and associated with Jokes
 * Added Stars, each user can only star a joke once
+* Added user rating system
 
 == Next...
 
 * Add Facebook Login
-* Incorporate user rating system
+* Incorporate user nicknames
 * Use bootstrap for styling
 * Use Angular JS for front end?
