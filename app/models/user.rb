@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   
-  after_initialize :defaults
   has_many :jokes, dependent: :destroy
   has_many :stars, dependent: :destroy
   has_many :starred_jokes, through: :stars, source: :joke, dependent: :destroy
@@ -9,10 +8,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
-  def defaults
-    self.rating = 0
-  end
 
   def owns_joke?(joke)
     id == joke.user_id

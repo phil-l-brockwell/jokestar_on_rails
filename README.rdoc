@@ -18,5 +18,7 @@ A social media website using Ruby on Rails.
 * Add user photos
 * Add tags to jokes
 * Add leaderboards
+* Add user page
+* Add joke view
 * Use bootstrap for styling
 * Use Angular JS for front end?
