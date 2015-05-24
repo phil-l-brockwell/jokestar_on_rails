@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20150524200921) do
 
   create_table "jokes", force: :cascade do |t|
     t.string   "text"
+    t.integer  "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
