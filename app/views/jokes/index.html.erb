@@ -11,7 +11,7 @@
 
     <%= joke.text %>
     <%= joke.user.email %>
-    <% unless @user.has_starred? joke %>
+    <% unless @user.starred? joke %>
       <%= form_for [joke, @star] do |f| %>
         <%= f.select :rating, (1..5) %>
         <%= f.submit 'Star' %>

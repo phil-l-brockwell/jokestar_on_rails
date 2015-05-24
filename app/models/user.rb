@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  
   has_many :jokes, dependent: :destroy
   has_many :stars, dependent: :destroy
   has_many :starred_jokes, through: :stars, source: :joke, dependent: :destroy
@@ -13,7 +12,7 @@ class User < ActiveRecord::Base
     id == joke.user_id
   end
 
-  def has_starred?(joke)
+  def starred?(joke)
     starred_jokes.include? joke
   end
 
@@ -22,5 +21,4 @@ class User < ActiveRecord::Base
     jokes.find_each { |joke| scores << joke.score }
     jokes.count + stars.count + scores.inject(0, :+)
   end
-
 end
