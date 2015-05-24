@@ -6,10 +6,12 @@ A social media website using Ruby on Rails.
 
 * Added Jokes
 * Added Users and associated with Jokes
+* Added Stars
 
 == Next...
 
 * Add Facebook Login
-* Add Stars
+* Ensure a user can only star each joke once
+* Incorporate useer rating system
 * Use bootstrap for styling
-* Use Angular JS for front end
+* Use Angular JS for front end?
