@@ -19,7 +19,7 @@ class JokesController < ApplicationController
     joke = Joke.find(params[:id])
     joke.delete
     flash[:notice] = 'Joke deleted successfully'
-    redirect_to '/jokes'
+    redirect_to '/'
   end
 
   private

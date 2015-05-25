@@ -15,6 +15,7 @@
       <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
       <%= current_user.email %>
       <%= current_user.score %>
+      <%= current_user.rank %>
     <% else %>
       <%= link_to 'Sign in', new_user_session_path %>
       <%= link_to 'Sign up', new_user_registration_path %>
