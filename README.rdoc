@@ -8,6 +8,7 @@ A social media website using Ruby on Rails.
 * Added Users and associated with Jokes
 * Added Stars, each user can only star a joke once
 * Added user rating system
+* Added Rankings
 
 == Next...
 
@@ -20,5 +21,4 @@ A social media website using Ruby on Rails.
 * Add leaderboards
 * Add user page
 * Add joke view
-* Use bootstrap for styling
 * Use Angular JS for front end?
