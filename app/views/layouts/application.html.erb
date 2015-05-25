@@ -11,19 +11,28 @@
 
   <body>
 
-    <% if user_signed_in? %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <%= current_user.email %>
-      <%= current_user.score %>
-      <%= current_user.rank %>
-    <% else %>
-      <%= link_to 'Sign in', new_user_session_path %>
-      <%= link_to 'Sign up', new_user_registration_path %>
-    <% end %>
+    <nav role='navigation' class="navbar navbar-default navbar-fixed-top">
+      <div class='navbar-header'>
+        <h1><a href='#' class='navbar-brand'>JokeStar<small> Is this a Joke?</small></a></h1>
+      </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <h1>This is JokeStar!</h1>
+      <div class='container'>
+        <ul class='nav navbar-nav navbar-right'>
+          <% if user_signed_in? %>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+            <li><%= current_user.email %></li>
+            <li><%= current_user.score %></li>
+            <li><%= current_user.rank %></li>
+          <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    <p class="alert-info"><%= notice %></p>
+    <p class="alert-danger"><%= alert %></p>
 
     <%= yield %>
 

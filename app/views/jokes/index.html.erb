@@ -1,6 +1,5 @@
 <%= form_for [@joke] do |f| %>
-  <%= f.label :text %>
-  <%= f.text_field :text %>
+  <%= f.text_area :text %>
   <%= f.submit %>
 <% end %>
 <br>
@@ -9,20 +8,22 @@
   
   <% @jokes.each do |joke| %>
 
-    <%= joke.text %>
-    <%= joke.user.email %>
-    <% unless @user.starred? joke %>
-      <%= form_for [joke, @star] do |f| %>
-        <%= f.select :rating, (1..5) %>
-        <%= f.submit 'Star' %>
-      <% end %>
-    <% end %>
-    <%= joke.average_rating %>
-    <% if @user.owns_joke? joke %>
-      <%= link_to "Delete", joke_path(joke), method: :delete %>
-    <% end %>
-    <br>
-    <br>
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= joke.user.email %></div>
+      <div class="panel-body">
+        <%= joke.text %>
+        <% unless @user.starred? joke %>
+          <%= form_for [joke, @star] do |f| %>
+            <%= f.select :rating, (1..5) %>
+            <%= f.submit 'Star' %>
+          <% end %>
+        <% end %>
+        <%= joke.average_rating %>
+        <% if @user.owns_joke? joke %>
+          <%= link_to "Delete", joke_path(joke), method: :delete %>
+        <% end %>
+      </div>
+    </div>
 
   <% end %>
 
