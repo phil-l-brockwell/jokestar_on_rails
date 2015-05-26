@@ -10,4 +10,9 @@ class Joke < ActiveRecord::Base
   def score
     stars.sum(:rating)
   end
+
+  def self.random
+    ids = connection.select_all("SELECT id FROM jokes")
+    find(ids[rand(ids.length)]["id"].to_i) unless ids.blank?
+  end
 end

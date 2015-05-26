@@ -4,6 +4,9 @@
 <% end %>
 <br>
 
+
+<div class="alert alert-success" role="alert">Random Joke: <%= @jokes.random.text %></div>
+
 <% if @jokes.any? %>
   
   <% @jokes.each do |joke| %>
