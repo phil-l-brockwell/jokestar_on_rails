@@ -12,6 +12,7 @@ class JokesController < ApplicationController
 
   def create
     current_user.jokes.create(joke_params)
+    flash[:notice] = 'Added new Joke!'
     redirect_to '/'
   end
 
