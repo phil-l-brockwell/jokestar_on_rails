@@ -42,4 +42,7 @@ class User < ActiveRecord::Base
     starred_jokes.include? joke
   end
 
+  def increment_rating!(points=1)
+    rating += points
+  end
 end
