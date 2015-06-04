@@ -18,7 +18,7 @@ class JokesController < ApplicationController
 
   def destroy
     joke = Joke.find(params[:id])
-    joke.delete
+    joke.destroy
     flash[:notice] = 'Joke deleted successfully'
     redirect_to '/'
   end

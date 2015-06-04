@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+
+  has_many :jokes, dependent: :destroy
+  has_many :stars, dependent: :destroy
+  has_many :starred_jokes, through: :stars, source: :joke, dependent: :destroy
+  
   DEFAULT_RANK = :snowflake
   RANKS =
     {
@@ -24,10 +29,6 @@ class User < ActiveRecord::Base
       100 => :'joke*'
     }
 
-  has_many :jokes, dependent: :destroy
-  has_many :stars, dependent: :destroy
-  has_many :starred_jokes, through: :stars, source: :joke, dependent: :destroy
-
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -48,6 +49,6 @@ class User < ActiveRecord::Base
   end
 
   def rank
-    return DEFAULT_RANK if score <= 20
+    DEFAULT_RANK if score <= 20
   end
 end
