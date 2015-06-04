@@ -12,6 +12,7 @@ class JokesController < ApplicationController
 
   def create
     current_user.jokes.create(joke_params)
+    current_user.increment_rating!
     flash[:notice] = 'Added new Joke!'
     redirect_to '/'
   end
@@ -19,6 +20,7 @@ class JokesController < ApplicationController
   def destroy
     joke = Joke.find(params[:id])
     joke.destroy
+    current_user.decrement_rating!
     flash[:notice] = 'Joke deleted successfully'
     redirect_to '/'
   end
