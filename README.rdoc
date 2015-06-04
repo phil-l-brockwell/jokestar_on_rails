@@ -9,6 +9,7 @@ A social media website using Ruby on Rails.
 * Added Stars, each user can only star a joke once
 * Added user rating system
 * Added Rankings
+* Added Bootstrap
 
 == Next...
 
