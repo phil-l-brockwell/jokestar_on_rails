@@ -6,7 +6,12 @@ class StarsController < ApplicationController
     joke = Joke.find(params[:joke_id])
     new_star = joke.stars.where(user: current_user).first_or_create(star_params)
     new_star.user = current_user
-    flash[:notice] = 'Starred!' if new_star.save
+    if new_star.save
+      flash[:notice] = 'Starred!'
+      current_user.increment_rating!
+      joke_user = User.find(joke.user_id)
+      joke_user.increment_rating!(new_star.rating)
+    end
     redirect_to '/'
   end
 
