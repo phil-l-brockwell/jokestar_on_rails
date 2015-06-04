@@ -42,13 +42,4 @@ class User < ActiveRecord::Base
     starred_jokes.include? joke
   end
 
-  def score
-    scores = []
-    jokes.find_each { |joke| scores << joke.score }
-    jokes.count + stars.count + scores.inject(0, :+)
-  end
-
-  def rank
-    DEFAULT_RANK if score <= 20
-  end
 end
