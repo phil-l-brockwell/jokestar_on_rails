@@ -4,6 +4,11 @@ class User < ActiveRecord::Base
   has_many :jokes, dependent: :destroy
   has_many :stars, dependent: :destroy
   has_many :starred_jokes, through: :stars, source: :joke, dependent: :destroy
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
   
   DEFAULT_RANK = :snowflake
   RANKS = { 0   => :buffoon,
@@ -27,24 +32,19 @@ class User < ActiveRecord::Base
             90  => :joker,
             100 => :'joke*' }
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   def defaults
     self.rating ||= 0
   end
 
-  def owns_joke?(joke)
+  def owns_joke? joke
     id == joke.user_id
   end
 
-  def starred?(joke)
+  def starred? joke
     starred_jokes.include? joke
   end
 
-  def increment_rating!(points=1)
+  def increment_rating! points=1
     self.rating += points
     self.save
   end
